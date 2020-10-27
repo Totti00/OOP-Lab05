@@ -5,7 +5,7 @@ package it.unibo.oop.lab05.ex3;
  * 
  */
 public final class UseWarehouse {
-
+	
     private UseWarehouse() {
     }
 
@@ -27,11 +27,11 @@ public final class UseWarehouse {
          * them to run the test.
          */
 
-        final Product p1 = null;
-        final Product p2 = null;
-        final Product p3 = null;
+        final Product p1 = new ProductImpl("p1", 100);
+        final Product p2 = new ProductImpl("p2", 100);
+        final Product p3 = new ProductImpl("p3", 100);
 
-        final Warehouse w = null;
+        final Warehouse w = new WharehouseImpl();
         w.addProduct(p3);
         w.addProduct(p1);
         w.addProduct(p2);
