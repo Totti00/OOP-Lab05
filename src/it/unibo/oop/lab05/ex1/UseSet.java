@@ -35,12 +35,15 @@ public final class UseSet {
          * 
          * 6) Verifies if all the numbers left in the set are even
          */
-    	TreeSet<String> tr1 = new TreeSet<String>();
+    	Set<String> tr1 = new TreeSet<String>();
     	for(int i = 1; i < 21; i++) {
     		tr1.add(Integer.toString(i));
     	}
+    	
     	Iterator<String> it = tr1.iterator();
+    	
     	System.out.println(tr1);
+    	
     	while(it.hasNext()) {
     		int r = Integer.parseInt(it.next()) ;
     		r = r % 3;
@@ -48,22 +51,21 @@ public final class UseSet {
     			it.remove();
     		}
     	}
+    	
     	for(String value : tr1) {
     		System.out.print(value + ",");
     	}
     	System.out.println();
     	
-    	int totNum = 0;
     	int numPari = 0;
- 
     	for(String pari : tr1) {
     		int r = Integer.parseInt(pari);
-    		totNum = totNum + 1;
     		if((r % 2) == 0) {
     			numPari = numPari + 1;
     		}
     	}
-    	if(totNum == numPari) {
+    	
+    	if(tr1.size() == numPari) {
     		System.out.println("Sono tutti pari");
     	}
     	else {

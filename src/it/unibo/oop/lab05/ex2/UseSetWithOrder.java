@@ -1,11 +1,13 @@
 package it.unibo.oop.lab05.ex2;
 
+import java.util.*;
+
 /**
  * 
  */
 public final class UseSetWithOrder {
 
-    private UseSetWithOrder() {
+	private UseSetWithOrder() {
     }
 
     /**
@@ -24,5 +26,13 @@ public final class UseSetWithOrder {
          * 
          * 3) Prints the set, which must be ordered
          */
+    	final Set<String> set = new TreeSet<>(new SetComparator());
+    	for(int i = 0; i<100; i++) {
+    		set.add(Integer.toString((int)(Math.random()*1000)));
+    	}
+    	
+    	for(final String s: set) {
+    		System.out.print(s + ",");
+    	}
     }
 }
