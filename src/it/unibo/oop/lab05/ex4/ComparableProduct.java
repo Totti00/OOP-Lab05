@@ -5,14 +5,13 @@ import it.unibo.oop.lab05.ex3.ProductImpl;
 
 public class ComparableProduct extends ProductImpl implements Comparable<Product>{
 
-	public ComparableProduct(String name, double q) {
+	public ComparableProduct(final String name, final double q) {
 		super(name, q);
 		
 	}
 
-	public int compareTo(Product arg0) {
-
-		return 0;
+	public int compareTo(final Product arg0) {
+		return getName().compareTo(arg0.getName());
 	}
 
 }
