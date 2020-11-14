@@ -4,32 +4,31 @@ import java.util.*;
 
 public class WharehouseImpl implements Warehouse{
 
-	private final Set<Product> set1 = new HashSet<Product>();
-
+	final Set<Product> set = new HashSet<>();
+	
 	public void addProduct(Product p) {
-		this.set1.add(p);
+		this.set.add(p);
 	}
 
 	public Set<String> allNames() {
-		final var s = new HashSet<String>();
-		for (final var p: this.set1) {
-			s.add(p.getName());
+		final Set<String> setName = new HashSet<>();
+		for(final Product p: this.set) {
+			setName.add(p.getName());
 		}
-		return s;
+		return setName;
 	}
 
 	public Set<Product> allProducts() {
-		
-		return new HashSet<>(this.set1);
+		return new HashSet<>(this.set);
 	}
 
 	public boolean containsProduct(Product p) {
-		return set1.contains(p);
+		return this.set.contains(p);
 	}
 
 	public double getQuantity(String name) {
-		for (final var p: this.set1) {
-			if( p.getName().equals(name)) {
+		for(final Product p: this.set) {
+			if(p.getName() == name) {
 				return p.getQuantity();
 			}
 		}
