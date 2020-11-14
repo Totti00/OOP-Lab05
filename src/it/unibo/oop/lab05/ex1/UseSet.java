@@ -1,6 +1,5 @@
 package it.unibo.oop.lab05.ex1;
 
-import java.util.Set;
 import java.util.*;
 
 /**
@@ -20,56 +19,52 @@ public final class UseSet {
         /*
          * Considering the content of "UseCollection, write a program which, in
          * order:
-         * 
+         *
          * 1) Builds a TreeSet containing Strings
-         * 
-         * 2) Populates such Collection with all the Strings ranging from "1" to
-         * "20"
-         * 
-         * 3) Prints its content
-         * 
-         * 4) Removes all those strings whose represented number is divisible by
-         * three
-         * 
-         * 5) Prints the content of the Set using a for-each costruct
-         * 
-         * 6) Verifies if all the numbers left in the set are even
          */
-    	Set<String> tr1 = new TreeSet<String>();
-    	for(int i = 1; i < 21; i++) {
-    		tr1.add(Integer.toString(i));
+    	
+    	final Set<String> set = new HashSet<>();
+    	
+         /* 2) Populates such Collection with all the Strings ranging from "1" to
+         * "20"
+         */
+    	
+    	for(int i = 0; i < 21; i++) {
+    		set.add(Integer.toString(i));
     	}
     	
-    	Iterator<String> it = tr1.iterator();
+         /* 3) Prints its content
+         */ 
+
+    	System.out.println(set);
     	
-    	System.out.println(tr1);
+    	/* 4) Removes all those strings whose represented number is divisible by
+         * three
+         */
+    	
+    	final Iterator<String> it = set.iterator();
     	
     	while(it.hasNext()) {
-    		int r = Integer.parseInt(it.next()) ;
-    		r = r % 3;
-    		if(r == 0) {
+    		if (Integer.parseInt(it.next()) % 3 == 0) {
     			it.remove();
     		}
     	}
-    	
-    	for(String value : tr1) {
-    		System.out.print(value + ",");
+
+         /* 5) Prints the content of the Set using a for-each costruct
+         */ 
+        
+    	for(final String num: set) {
+    		System.out.print(num + " ");
     	}
     	System.out.println();
-    	
-    	int numPari = 0;
-    	for(String pari : tr1) {
-    		int r = Integer.parseInt(pari);
-    		if((r % 2) == 0) {
-    			numPari = numPari + 1;
+    	/* 6) Verifies if all the numbers left in the set are even
+         */
+    	int dispari = 0;
+    	for(final String controllo: set) {
+    		if(Integer.parseInt(controllo) % 2 != 0) {
+    			dispari++;
     		}
     	}
-    	
-    	if(tr1.size() == numPari) {
-    		System.out.println("Sono tutti pari");
-    	}
-    	else {
-    		System.out.println("Non sono tutti pari");
-    	}
+    	System.out.println("Sono tutti pari? " + (dispari == 0 ? true : false));
     }
 }
